@@ -12,6 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.2"
   }
 }
