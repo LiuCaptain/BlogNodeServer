@@ -14,7 +14,6 @@ const getList = (author, keyword) => {
 };
 
 const getDetail = (id) => {
-  console.log('id', id);
   return {
     id: 1,
     title: '标题1',
@@ -22,7 +21,22 @@ const getDetail = (id) => {
   };
 };
 
+const createBlog = (postData = {}) => {
+  return { id: 1 };
+};
+
+const updateBlog = (postData = {}) => {
+  return { id: 2 };
+};
+
+const deleteBlog = (postData) => {
+  return { id: 3 };
+};
+
 module.exports = {
   getList,
-  getDetail
+  getDetail,
+  createBlog,
+  updateBlog,
+  deleteBlog
 };

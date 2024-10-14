@@ -1,4 +1,4 @@
-const { getList, getDetail } = require('./../controller/blog');
+const { getList, getDetail, createBlog, updateBlog, deleteBlog } = require('./../controller/blog');
 const { SuccessModel, ErrorModel } = require('./../model/resModel');
 
 const handleBlogRouter = (req, res) => {
@@ -13,6 +13,7 @@ const handleBlogRouter = (req, res) => {
     return new SuccessModel(data);
   }
 
+  // 获取博客详情
   if (method === 'GET' && req.path === '/api/blog/detail') {
     const id = req.query.id;
     const data = getDetail(id);
@@ -20,22 +21,28 @@ const handleBlogRouter = (req, res) => {
     return new SuccessModel(data);
   }
 
-  if (method === 'POST' && req.path === '/api/blog/new') {
-    return {
-      msg: '创建博客'
-    };
+  // 新建博客
+  if (method === 'POST' && req.path === '/api/blog/create') {
+    const postData = req.body;
+    const data = createBlog(postData);
+
+    return new SuccessModel(data);
   }
 
+  // 更新博客
   if (method === 'POST' && req.path === '/api/blog/update') {
-    return {
-      msg: '更新博客'
-    };
+    const postData = req.body;
+    const data = updateBlog(postData);
+
+    return new SuccessModel(data);
   }
 
-  if (method === 'POST' && req.path === '/api/blog/del') {
-    return {
-      msg: '删除博客'
-    };
+  // 删除博客
+  if (method === 'DELETE' && req.path === '/api/blog/delete') {
+    const postData = req.body;
+    const data = deleteBlog(postData);
+
+    return new SuccessModel(data);
   }
 };
 
